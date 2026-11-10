@@ -14,7 +14,7 @@ const AIChat = {
         this.cacheDOM();
         this.bindEvents();
         // Welcome message
-        setTimeout(() => this.addMessage('assistant', '¡Hola! Soy el asistente virtual de El Arca. 🌿 ¿En qué puedo ayudarte hoy?'), 800);
+        setTimeout(() => this.addMessage('assistant', '¡Hola! Soy el asistente virtual de El Arca. ¿En qué puedo ayudarte hoy?'), 800);
     },
 
     injectHTML() {
@@ -26,7 +26,7 @@ const AIChat = {
         
         <div class="chat-window">
           <header class="chat-header">
-            <div class="chat-avatar">🤖</div>
+            <div class="chat-avatar" aria-hidden="true">EA</div>
             <div class="chat-title">
               <h3>Asistente El Arca</h3>
               <span class="status">En línea</span>
@@ -35,7 +35,6 @@ const AIChat = {
           </header>
           
           <div id="chat-messages" class="chat-messages">
-            <!-- Messages go here -->
           </div>
 
           <div class="chat-input-area">
