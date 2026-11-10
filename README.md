@@ -6,8 +6,8 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791?logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)
 ![Render](https://img.shields.io/badge/Deployed-Render-46E3B7?logo=render&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?logo=render&logoColor=white)](https://arca-jv4f.onrender.com)
+License
+[Live Demo](https://arca-jv4f.onrender.com)
 >
 > *(El plan gratuito de Render puede tardar ~30 s en despertar.)*
 
