@@ -47,12 +47,12 @@ if ($user) {
         // Server settings
         // $mail->SMTPDebug = 0;
         $mail->isSMTP();
-        $mail->Host = 'smtp.example.com'; // Replace with real SMTP
+        $mail->Host = $_ENV['SMTP_HOST'] ?? '';
         $mail->SMTPAuth = true;
-        $mail->Username = 'user@example.com';
-        $mail->Password = 'secret';
+        $mail->Username = $_ENV['SMTP_USER'] ?? '';
+        $mail->Password = $_ENV['SMTP_PASS'] ?? '';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = (int) ($_ENV['SMTP_PORT'] ?? 587);
 
         // Recipients
         $mail->setFrom('noreply@elarca.com', 'El Arca');

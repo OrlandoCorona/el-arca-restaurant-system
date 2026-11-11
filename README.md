@@ -105,8 +105,8 @@ Open [http://localhost:10000](http://localhost:10000)
 ### Database setup
 
 ```bash
-psql -U your_user -d your_database -f app/database/migrations/schema.sql
-psql -U your_user -d your_database -f app/database/migrations/seeds.sql
+psql "$DATABASE_URL" -f app/database/migrations/schema.sql
+psql "$DATABASE_URL" -f app/database/migrations/seeds.sql
 ```
 
 ---

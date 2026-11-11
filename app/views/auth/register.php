@@ -80,9 +80,6 @@ declare(strict_types=1);
     }
   </style>
 
-  <!-- Google Maps API Placeholder - Replace YOUR_API_KEY with real key when relocating -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete"
-    async defer></script>
 </head>
 
 <body class="auth-page auth-strict-layout">
@@ -154,14 +151,7 @@ declare(strict_types=1);
           <!-- Address Breakdown -->
           <h4 style="color:var(--primary); font-size:0.9rem; margin:1rem 0 0.5rem; text-align:left;">Domicilio</h4>
 
-          <!-- Autocomplete Helper -->
           <div class="form-group">
-            <input type="text" id="autocomplete_search" placeholder=" " autocomplete="off">
-            <label for="autocomplete_search">Buscar dirección (Google Maps)</label>
-          </div>
-
-          <div class="form-group">
-            <!-- Backend expects 'domicilio' text, we will combine or use this as main street -->
             <input type="text" name="domicilio" id="calle" placeholder=" " required autocomplete="address-line1">
             <label for="calle">Calle y Número</label>
           </div>
@@ -381,39 +371,15 @@ declare(strict_types=1);
       document.getElementById('real_paterno').value = rPat;
       document.getElementById('real_materno').value = rMat;
 
-      // Note: 'domicilio' input already has name="domicilio", which backend expects.
-      // We can optionally append city/municipio to it if backend only has 1 field.
-      // Assuming backend only has 'domicilio', let's combine for safety:
+      // El backend recibe un solo campo 'domicilio'; se arma con calle, interior, municipio y ciudad.
       const calle = document.getElementById('calle').value;
       const num = document.getElementById('num_int').value;
       const mun = document.getElementById('municipio').value;
       const cd = document.getElementById('ciudad').value;
 
-      // Overwrite the main input with full address just in case
-      // Or rely on the user typing strictly in 'calle'.
-      // Best bet: Append details to 'domicilio' value
       const fullAddress = `${calle} ${num ? 'Int ' + num : ''}, ${mun}, ${cd}`;
-      // We'll update the main input so backend gets full string
       document.getElementById('calle').value = fullAddress;
     });
-
-    // --- Google Maps Autocomplete Placeholder ---
-    function initAutocomplete() {
-      const input = document.getElementById('autocomplete_search');
-      // In production, this would initialize properly with valid key
-      if (google && google.maps && google.maps.places) {
-        const autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.addListener('place_changed', function () {
-          const place = autocomplete.getPlace();
-          // Logic to populate fields
-          // console.log(place);
-          // Mock population for now:
-          if (place.address_components) {
-            // Parse components...
-          }
-        });
-      }
-    }
   </script>
 
 </body>
